@@ -25,6 +25,7 @@ class PostProvider extends ChangeNotifier {
   Future<void> _init() async {
 // initialize connectivity
     final connectivity = Connectivity();
+    _isOnline = false;
     _connectivitySub = connectivity.onConnectivityChanged.listen((event) async {
       final wasOnline = _isOnline;
       _isOnline = event != ConnectivityResult.none;
